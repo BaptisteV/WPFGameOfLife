@@ -1,0 +1,62 @@
+﻿<Window x:Class="GameOfLife.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:GameOfLife"
+        mc:Ignorable="d"
+        Icon="icon.png"
+        Title="Conway's Game Of Life" Height="730" Width="892"
+        MinHeight="730" MinWidth="892"
+        Loaded="Window_Loaded">
+    <Window.Resources>
+        <Thickness x:Key="CellMargin" Bottom="4" Top="4" Left="4" Right="4"></Thickness>
+        <sys:Double x:Key="CellWidth">50</sys:Double>
+        <DataTemplate x:Key="DataTemplate_Level2">
+            <Button Background="{Binding IsAsync=True}" Cursor="Hand" Height="40" Width="{DynamicResource CellWidth}" Margin="{DynamicResource CellMargin}" Click="Button_Click"/>
+        </DataTemplate>
+        
+        <DataTemplate x:Key="DataTemplate_Level1">
+            <ItemsControl ItemsSource="{Binding IsAsync=True}" ItemTemplate="{DynamicResource DataTemplate_Level2}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </DataTemplate>
+
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Stretch">
+            <Separator Margin="10"></Separator>
+            <StackPanel Orientation="Horizontal">
+                <Button Cursor="Hand" HorizontalAlignment="Left" Name="wikiButton" Content="W" FontSize="25" FontFamily="Times New Roman" Click="wikiButton_Click" Height="40" Width="50" Margin="4" ToolTip="Go to the Wikipedia Game of Life page"></Button>
+                <Button Cursor="Hand" HorizontalAlignment="Left" Name="toadButton" Content="Toad" Click="toadButton_Click" Height="40" Width="50" Margin="4" ToolTip="Set to a toad shape"></Button>
+            </StackPanel>
+            <Separator Margin="10"></Separator>
+            <DockPanel>
+                <Button Cursor="Hand" Name="startButton" Content="▶" FontSize="20" Click="startButton_Click" Height="40" Width="50" Margin="4" ToolTip="Start"></Button>
+                <Button Cursor="Hand" Name="pauseButton" Content="❚❚" FontSize="20" Click="pauseButton_Click" Height="40" Width="50" Margin="4" ToolTip="Pause"></Button>
+                <Button Cursor="Hand" Name="nextGenerationButton" Content="↪" FontSize="20" Click="nextGenerationButton_Click" Height="40" Width="50" Margin="4" ToolTip="Next generation"></Button>
+                <Button Cursor="Hand" Name="killButton" Content="☠" FontSize="20" Height="40" Width="50" Margin="4" Click="killButton_Click" ToolTip="Kill all cells"></Button>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBox Name="GridSizeTextBox" Text="10" Width="50" Height="40" FontSize="20" TextAlignment="Center" VerticalContentAlignment="Center" ToolTip="Size of the grid" HorizontalAlignment="Right"></TextBox>
+                    <Button Cursor="Hand" Name="refreshSizeButton" Content="↺" FontSize="20" Click="refreshSizeButton_Click" Height="40" Width="50" Margin="4" ToolTip="Refresh grid with the new size" HorizontalAlignment="Right"></Button>
+                </StackPanel>
+            </DockPanel>
+            <Separator Margin="10"></Separator>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" ToolTip="Update interval (ms)">
+                <Slider Cursor="Hand" Name="speedSlider" Maximum="1000" Minimum="10" Value="300" IsSnapToTickEnabled="True" HorizontalAlignment="Left" Width="846" ValueChanged="speedSlider_ValueChanged"></Slider>
+                <TextBox IsReadOnly="True" Text="{Binding ElementName=speedSlider, Path=Value}" DockPanel.Dock="Right" HorizontalAlignment="Right" TextAlignment="Center"></TextBox>
+            </StackPanel>
+            <Separator Margin="10"></Separator>
+        </StackPanel>
+        <ItemsControl Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="items" ItemTemplate="{DynamicResource DataTemplate_Level1}"/>
+    </Grid>
+</Window>
