@@ -26,10 +26,10 @@ namespace GameOfLife
         public void AllCellsDead()
         {
             Cells = new List<List<CellState>>();
-            for (var i = 0; i < width - 1; i++)
+            for (var i = 0; i < width; i++)
             {
                 Cells.Add(new List<CellState>());
-                for (var j = 0; j < heigth - 1; j++)
+                for (var j = 0; j < heigth; j++)
                 {
                     Cells[i].Add(CellState.Dead);
                 }

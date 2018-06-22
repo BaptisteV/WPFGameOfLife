@@ -87,8 +87,11 @@ namespace GameOfLife
             UpdateEvent(null, EventArgs.Empty);
         }
 
-        public void SetToToad()
+        public bool SetToToad()
         {
+            if (cellularSys.Cells.ElementAtOrDefault(3) == null || cellularSys.Cells[3].ElementAtOrDefault(4) == default(CellState))
+                return false;
+
             cellularSys.AllCellsDead();
             cellularSys.Cells[1][2] = CellState.Alive;
             cellularSys.Cells[2][2] = CellState.Alive;
@@ -97,6 +100,7 @@ namespace GameOfLife
             cellularSys.Cells[3][1] = CellState.Alive;
             cellularSys.Cells[4][1] = CellState.Alive;
             UpdateEvent(null, EventArgs.Empty);
+            return true;
         }
 
     }
