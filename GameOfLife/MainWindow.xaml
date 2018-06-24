@@ -41,6 +41,7 @@
                 <Button Cursor="Hand" HorizontalAlignment="Left" Name="blinkerButton" Content="Blinker" Click="blinkerButton_Click" Height="40" Width="50" Margin="4" ToolTip="Set to a blinker shape"></Button>
                 <Button Cursor="Hand" HorizontalAlignment="Left" Name="beaconButton" Content="Beacon" Click="beaconButton_Click" Height="40" Width="50" Margin="4" ToolTip="Set to a beacon shape"></Button>
                 <Button Cursor="Hand" HorizontalAlignment="Left" Name="pulsarButton" Content="Pulsar" Click="pulsarButton_Click" Height="40" Width="50" Margin="4" ToolTip="Set to a pulsar shape"></Button>
+                <Button Cursor="Hand" HorizontalAlignment="Left" Name="pentadecathlonButton" Content="Pentadecathlon" Click="pentadecathlonButton_Click" Height="40" Width="100" Margin="4" ToolTip="Set to a pentadecathlon shape"></Button>
             </StackPanel>
             <Separator Margin="10"></Separator>
             <DockPanel>

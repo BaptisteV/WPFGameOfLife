@@ -147,5 +147,13 @@ namespace GameOfLife
                 DisplayGridTooSmallErrorMessage();
             }
         }
+
+        private void pentadecathlonButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!game.SetTo(new PentadecathlonShape()))
+            {
+                DisplayGridTooSmallErrorMessage();
+            }
+        }
     }
 }

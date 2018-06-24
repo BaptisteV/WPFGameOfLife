@@ -85,6 +85,7 @@
     </ApplicationDefinition>
     <Compile Include="BeaconShape.cs" />
     <Compile Include="BlinkerShape.cs" />
+    <Compile Include="PentadecathlonShape.cs" />
     <Compile Include="PulsarShape.cs" />
     <Compile Include="Shape.cs" />
     <Compile Include="ToadShape.cs" />
