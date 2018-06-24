@@ -26,10 +26,10 @@ namespace GameOfLife
         public void AllCellsDead()
         {
             Cells = new List<List<CellState>>();
-            for (var i = 0; i < width; i++)
+            for (var i = 0; i < width - 1; i++)
             {
                 Cells.Add(new List<CellState>());
-                for (var j = 0; j < heigth; j++)
+                for (var j = 0; j < heigth - 1; j++)
                 {
                     Cells[i].Add(CellState.Dead);
                 }
@@ -73,11 +73,6 @@ namespace GameOfLife
                 surrondings.Add(Cells[x - 1][y]); // left
             }
             return surrondings;
-        }
-
-        public bool SetAliveCells(Shape shape)
-        {
-
         }
 
         private int CountSurrondingLivingCells(int x, int y)

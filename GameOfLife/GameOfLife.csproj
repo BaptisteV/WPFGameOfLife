@@ -83,10 +83,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ICreateShape.cs" />
-    <Compile Include="Shape.cs" />
-    <Compile Include="ShapeFactory.cs" />
-    <Compile Include="ToadShape.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
