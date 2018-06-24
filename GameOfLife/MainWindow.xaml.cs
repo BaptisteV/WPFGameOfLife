@@ -131,5 +131,13 @@ namespace GameOfLife
                 DisplayGridTooSmallErrorMessage();
             }
         }
+
+        private void beaconButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!game.SetTo(new BeaconShape()))
+            {
+                DisplayGridTooSmallErrorMessage();
+            }
+        }
     }
 }

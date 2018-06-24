@@ -80,7 +80,7 @@ namespace GameOfLife
             AllCellsDead();
             foreach(var aliveCell in shape.AliveCells)
             {
-                if (Cells.ElementAtOrDefault(aliveCell.Item1) != null && Cells[aliveCell.Item1].ElementAtOrDefault(aliveCell.Item2) != default(CellState))
+                if (Cells.ElementAtOrDefault(aliveCell.Item1) == null || Cells[aliveCell.Item1].ElementAtOrDefault(aliveCell.Item2) == default(CellState))
                 {
                     return false;
                 }
