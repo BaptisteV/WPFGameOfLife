@@ -139,5 +139,13 @@ namespace GameOfLife
                 DisplayGridTooSmallErrorMessage();
             }
         }
+
+        private void pulsarButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!game.SetTo(new PulsarShape()))
+            {
+                DisplayGridTooSmallErrorMessage();
+            }
+        }
     }
 }
