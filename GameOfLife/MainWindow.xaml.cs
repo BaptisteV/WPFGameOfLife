@@ -31,7 +31,7 @@ namespace GameOfLife
         {
             game = new GameOfLifeGame(10, 10);
             game.UpdateEvent += updateUI;
-            game.SetToToad();
+            game.SetTo(new ToadShape());
         }
 
         private void updateUI(object sender, EventArgs e)
@@ -39,10 +39,17 @@ namespace GameOfLife
             // How to bind directly to CellPresentation.CellColor ?
             items.ItemsSource = game.displayList.Select(p => p.Select(i => i.CellColor));
         }
+        private void DisplayGridTooSmallErrorMessage()
+        {
+            MessageBox.Show("The grid is too small for this shape", Title);
+        }
 
         private void toadButton_Click(object sender, RoutedEventArgs e)
         {
-            game.SetToToad();
+            if(!game.SetTo(new ToadShape()))
+            {
+                DisplayGridTooSmallErrorMessage();
+            }
         }
 
         private void nextGenerationButton_Click(object sender, RoutedEventArgs e)
@@ -113,10 +120,15 @@ namespace GameOfLife
             {
                 game = new GameOfLifeGame(newSize, newSize);
                 game.UpdateEvent += updateUI;
-                if (newSize >= 5)
-                {
-                    game.SetToToad();
-                }
+                updateUI(null, EventArgs.Empty);
+            }
+        }
+
+        private void blinkerButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!game.SetTo(new BlinkerShape()))
+            {
+                DisplayGridTooSmallErrorMessage();
             }
         }
     }

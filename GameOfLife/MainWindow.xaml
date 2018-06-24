@@ -38,6 +38,7 @@
             <StackPanel Orientation="Horizontal">
                 <Button Cursor="Hand" HorizontalAlignment="Left" Name="wikiButton" Content="W" FontSize="25" FontFamily="Times New Roman" Click="wikiButton_Click" Height="40" Width="50" Margin="4" ToolTip="Go to the Wikipedia Game of Life page"></Button>
                 <Button Cursor="Hand" HorizontalAlignment="Left" Name="toadButton" Content="Toad" Click="toadButton_Click" Height="40" Width="50" Margin="4" ToolTip="Set to a toad shape"></Button>
+                <Button Cursor="Hand" HorizontalAlignment="Left" Name="blinkerButton" Content="Blinker" Click="blinkerButton_Click" Height="40" Width="50" Margin="4" ToolTip="Set to a blincker shape"></Button>
             </StackPanel>
             <Separator Margin="10"></Separator>
             <DockPanel>
