@@ -6,6 +6,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:GameOfLife"
         mc:Ignorable="d"
+        Closing="Window_Closing"
         Icon="icon.png"
         Title="Conway's Game Of Life" Height="780" Width="892"
         MinHeight="780" MinWidth="892"

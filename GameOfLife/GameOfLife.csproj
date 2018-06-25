@@ -93,8 +93,10 @@
       <DependentUpon>CellColorPicker.xaml</DependentUpon>
     </Compile>
     <Compile Include="GolGameSettings.cs" />
+    <Compile Include="IRepository.cs" />
     <Compile Include="PentadecathlonShape.cs" />
     <Compile Include="PulsarShape.cs" />
+    <Compile Include="Repository.cs" />
     <Compile Include="Shape.cs" />
     <Compile Include="ToadShape.cs" />
     <Page Include="CellColorPicker.xaml">

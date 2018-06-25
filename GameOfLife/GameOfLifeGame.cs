@@ -15,6 +15,7 @@ namespace GameOfLife
         private DispatcherTimer updateLoop;
         public event EventHandler UpdateEvent;
         public GolGameSettings settings;
+        private IRepository repository;
 
         public List<List<CellPresentation>> displayList
         {
@@ -40,14 +41,18 @@ namespace GameOfLife
 
         public GameOfLifeGame(int width, int height)
         {
-            settings = new GolGameSettings();
-            settings.AliveColor = new SolidColorBrush(Colors.Yellow);
-            settings.DeadColor = new SolidColorBrush(Colors.LightBlue);
+            repository = new Repository();
+            settings = repository.GetSettings();
+            if(settings == null)
+            {
+                settings = new GolGameSettings();
+            }
             cellularSys = new CellularSystem(width, height, settings);
             
             updateLoop = new DispatcherTimer();
             updateLoop.Interval = new TimeSpan(0, 0, 0, 0, 300);
             updateLoop.Tick += UpdateLoop_Tick;
+
         }
 
         private void UpdateLoop_Tick(object sender, EventArgs e)
@@ -95,6 +100,10 @@ namespace GameOfLife
             UpdateEvent(null, EventArgs.Empty);
             return result;
         }
-
+        
+        public void SaveSettings()
+        {
+            repository.SaveSettings(this.settings);
+        }
     }
 }
