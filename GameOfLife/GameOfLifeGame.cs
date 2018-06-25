@@ -14,6 +14,7 @@ namespace GameOfLife
 
         private DispatcherTimer updateLoop;
         public event EventHandler UpdateEvent;
+        public GolGameSettings settings;
 
         public List<List<CellPresentation>> displayList
         {
@@ -27,7 +28,7 @@ namespace GameOfLife
                     result.Add(new List<CellPresentation>());
                     for (var j = 0; j < system[i].Count; j++)
                     {
-                        var brush = system[i][j] == CellState.Alive ? cellularSys.AliveColor : cellularSys.DeadColor;
+                        var brush = system[i][j] == CellState.Alive ? settings.AliveColor : settings.DeadColor;
                         result[i].Add(new CellPresentation(brush, new Tuple<int, int>(i, j)));
                     }
                 }
@@ -39,9 +40,10 @@ namespace GameOfLife
 
         public GameOfLifeGame(int width, int height)
         {
-            cellularSys = new CellularSystem(width, height);
-            cellularSys.AliveColor = new SolidColorBrush(Colors.Yellow);
-            cellularSys.DeadColor = new SolidColorBrush(Colors.LightBlue);
+            settings = new GolGameSettings();
+            settings.AliveColor = new SolidColorBrush(Colors.Yellow);
+            settings.DeadColor = new SolidColorBrush(Colors.LightBlue);
+            cellularSys = new CellularSystem(width, height, settings);
             
             updateLoop = new DispatcherTimer();
             updateLoop.Interval = new TimeSpan(0, 0, 0, 0, 300);

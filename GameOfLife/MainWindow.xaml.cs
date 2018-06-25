@@ -21,6 +21,7 @@ namespace GameOfLife
     public partial class MainWindow : Window
     {
         private GameOfLifeGame game;
+        private CellColorPicker cellColorPicker;
 
         public MainWindow()
         {
@@ -32,6 +33,9 @@ namespace GameOfLife
             game = new GameOfLifeGame(10, 10);
             game.UpdateEvent += UpdateUI;
             game.SetTo(new ToadShape());
+            cellColorPicker = new CellColorPicker(new GolGameSettings());
+            cellColorPicker.Title = this.Title;
+            cellColorPicker.Icon = this.Icon;
         }
 
         private void UpdateUI(object sender, EventArgs e)
@@ -154,6 +158,11 @@ namespace GameOfLife
             {
                 DisplayGridTooSmallErrorMessage();
             }
+        }
+
+        private void ChangeColorMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            cellColorPicker.Show();
         }
     }
 }

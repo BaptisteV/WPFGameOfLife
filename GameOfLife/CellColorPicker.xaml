@@ -1,0 +1,40 @@
+﻿<Window
+    x:Class="GameOfLife.CellColorPicker"
+       MinWidth="200" 
+       MinHeight="100" 
+       Width="200" 
+       Height="140"
+       ResizeMode="NoResize"
+       VerticalAlignment="Center" 
+       HorizontalAlignment="Center"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GameOfLife"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
+        mc:Ignorable="d">
+    <Grid Width="Auto" Height="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <Label Content="Set the color of the cells"/>
+        </StackPanel>
+
+        <GroupBox Grid.Row="1">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <Label>Alive cell</Label>
+                    <xctk:ColorPicker Name="AliveColorSelector" Width="40" SelectedColorChanged="AliveColorSelector_SelectedColorChanged"></xctk:ColorPicker>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label>Dead cell</Label>
+                    <xctk:ColorPicker Name="DeadColorSelector" Width="40" SelectedColorChanged="DeadColorSelector_SelectedColorChanged"></xctk:ColorPicker>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</Window>

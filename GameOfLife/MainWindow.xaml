@@ -34,6 +34,12 @@
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Stretch">
+            <DockPanel>
+                <Menu DockPanel.Dock="Top">
+                    <MenuItem Name="ChangeColorMenuItem" Header="_Change colors" Click="ChangeColorMenuItem_Click">
+                    </MenuItem>
+                </Menu>
+            </DockPanel>
             <Separator Margin="10"></Separator>
             <StackPanel Orientation="Horizontal">
                 <Button Cursor="Hand" HorizontalAlignment="Left" Name="WikiButton" Content="W" FontSize="25" FontFamily="Times New Roman" Click="WikiButton_Click" Height="40" Width="50" Margin="4" ToolTip="Go to the Wikipedia Game of Life page"></Button>
@@ -52,6 +58,7 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBox Name="GridSizeTextBox" Text="10" Width="50" Height="40" FontSize="20" TextAlignment="Center" VerticalContentAlignment="Center" ToolTip="Size of the grid" HorizontalAlignment="Right"></TextBox>
                     <Button Cursor="Hand" Name="RefreshSizeButton" Content="↺" FontSize="20" Click="RefreshSizeButton_Click" Height="40" Width="50" Margin="4" ToolTip="Refresh grid with the new size" HorizontalAlignment="Right"></Button>
+                    <!-- <Button Cursor="Hand" Name="ColorPickerButton" Content="↺" FontSize="20" Click="RefreshSizeButton_Click" Height="40" Width="50" Margin="4" ToolTip="Refresh grid with the new size" HorizontalAlignment="Right"></Button>-->
                 </StackPanel>
             </DockPanel>
             <Separator Margin="10"></Separator>

@@ -77,6 +77,10 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.3.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dlls\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -85,10 +89,18 @@
     </ApplicationDefinition>
     <Compile Include="BeaconShape.cs" />
     <Compile Include="BlinkerShape.cs" />
+    <Compile Include="CellColorPicker.xaml.cs">
+      <DependentUpon>CellColorPicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GolGameSettings.cs" />
     <Compile Include="PentadecathlonShape.cs" />
     <Compile Include="PulsarShape.cs" />
     <Compile Include="Shape.cs" />
     <Compile Include="ToadShape.cs" />
+    <Page Include="CellColorPicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

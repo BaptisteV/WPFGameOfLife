@@ -10,16 +10,16 @@ namespace GameOfLife
 {
     public class CellularSystem
     {
-        public Brush DeadColor { get; set; }
-        public Brush AliveColor { get; set; }
         public List<List<CellState>> Cells { get; set; }
         private int width;
         private int heigth;
+        private GolGameSettings settings;
 
-        public CellularSystem(int width, int height)
+        public CellularSystem(int width, int height, GolGameSettings settings)
         {
             this.width = width;
             this.heigth = height;
+            this.settings = settings;
             AllCellsDead();
         }
 
