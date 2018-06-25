@@ -33,7 +33,7 @@ namespace GameOfLife
             game = new GameOfLifeGame(10, 10);
             game.UpdateEvent += UpdateUI;
             game.SetTo(new ToadShape());
-            cellColorPicker = new CellColorPicker(new GolGameSettings());
+            cellColorPicker = new CellColorPicker(game.settings);
             cellColorPicker.Title = this.Title;
             cellColorPicker.Icon = this.Icon;
         }
@@ -162,7 +162,8 @@ namespace GameOfLife
 
         private void ChangeColorMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            cellColorPicker.Show();
+            cellColorPicker.ShowDialog();
+            UpdateUI(null, EventArgs.Empty);
         }
     }
 }

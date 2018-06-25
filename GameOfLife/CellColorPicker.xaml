@@ -12,7 +12,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameOfLife"
-        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d">
     <Grid Width="Auto" Height="Auto">
         <Grid.RowDefinitions>
@@ -25,15 +25,15 @@
         </StackPanel>
 
         <GroupBox Grid.Row="1">
-            <StackPanel Orientation="Vertical">
-                <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Vertical" Width="180">
+                <DockPanel>
                     <Label>Alive cell</Label>
-                    <xctk:ColorPicker Name="AliveColorSelector" Width="40" SelectedColorChanged="AliveColorSelector_SelectedColorChanged"></xctk:ColorPicker>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
+                    <xctk:ColorPicker Name="AliveColorSelector" HorizontalAlignment="Right" Width="40" SelectedColorChanged="AliveColorSelector_SelectedColorChanged"></xctk:ColorPicker>
+                </DockPanel>
+                <DockPanel>
                     <Label>Dead cell</Label>
-                    <xctk:ColorPicker Name="DeadColorSelector" Width="40" SelectedColorChanged="DeadColorSelector_SelectedColorChanged"></xctk:ColorPicker>
-                </StackPanel>
+                    <xctk:ColorPicker Name="DeadColorSelector" HorizontalAlignment="Right" Width="40" SelectedColorChanged="DeadColorSelector_SelectedColorChanged"></xctk:ColorPicker>
+                </DockPanel>
             </StackPanel>
         </GroupBox>
     </Grid>

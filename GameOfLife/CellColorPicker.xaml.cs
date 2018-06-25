@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,7 +35,7 @@ namespace GameOfLife
         {
             if(e.NewValue != null)
             {
-                //settings.AliveColor = new SolidColorBrush((Color)e.NewValue);
+                settings.AliveColor = new SolidColorBrush((Color)e.NewValue);
             }
         }
 
@@ -42,8 +43,15 @@ namespace GameOfLife
         {
             if (e.NewValue != null)
             {
-                //settings.DeadColor = new SolidColorBrush((Color)e.NewValue);
+                settings.DeadColor = new SolidColorBrush((Color)e.NewValue);
             }
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            base.OnClosing(e);
+            e.Cancel = true;
+            Hide();
         }
     }
 }
