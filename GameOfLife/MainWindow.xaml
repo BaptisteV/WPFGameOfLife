@@ -14,7 +14,7 @@
         <Thickness x:Key="CellMargin" Bottom="4" Top="4" Left="4" Right="4"></Thickness>
         <sys:Double x:Key="CellWidth">50</sys:Double>
         <DataTemplate x:Key="DataTemplate_Level2">
-            <Button Background="{Binding IsAsync=True}" Cursor="Hand" Height="40" Width="{DynamicResource CellWidth}" Margin="{DynamicResource CellMargin}" Click="Button_Click"/>
+            <Button Background="{Binding IsAsync=True}" Cursor="Hand" Height="40" Width="{DynamicResource CellWidth}" Margin="{DynamicResource CellMargin}" Click="Cell_Click"/>
         </DataTemplate>
         
         <DataTemplate x:Key="DataTemplate_Level1">
@@ -36,31 +36,31 @@
         <StackPanel Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Stretch">
             <Separator Margin="10"></Separator>
             <StackPanel Orientation="Horizontal">
-                <Button Cursor="Hand" HorizontalAlignment="Left" Name="wikiButton" Content="W" FontSize="25" FontFamily="Times New Roman" Click="wikiButton_Click" Height="40" Width="50" Margin="4" ToolTip="Go to the Wikipedia Game of Life page"></Button>
-                <Button Cursor="Hand" HorizontalAlignment="Left" Name="toadButton" Content="Toad" Click="toadButton_Click" Height="40" Width="50" Margin="4" ToolTip="Set to a toad shape"></Button>
-                <Button Cursor="Hand" HorizontalAlignment="Left" Name="blinkerButton" Content="Blinker" Click="blinkerButton_Click" Height="40" Width="50" Margin="4" ToolTip="Set to a blinker shape"></Button>
-                <Button Cursor="Hand" HorizontalAlignment="Left" Name="beaconButton" Content="Beacon" Click="beaconButton_Click" Height="40" Width="50" Margin="4" ToolTip="Set to a beacon shape"></Button>
-                <Button Cursor="Hand" HorizontalAlignment="Left" Name="pulsarButton" Content="Pulsar" Click="pulsarButton_Click" Height="40" Width="50" Margin="4" ToolTip="Set to a pulsar shape"></Button>
-                <Button Cursor="Hand" HorizontalAlignment="Left" Name="pentadecathlonButton" Content="Pentadecathlon" Click="pentadecathlonButton_Click" Height="40" Width="100" Margin="4" ToolTip="Set to a pentadecathlon shape"></Button>
+                <Button Cursor="Hand" HorizontalAlignment="Left" Name="WikiButton" Content="W" FontSize="25" FontFamily="Times New Roman" Click="WikiButton_Click" Height="40" Width="50" Margin="4" ToolTip="Go to the Wikipedia Game of Life page"></Button>
+                <Button Cursor="Hand" HorizontalAlignment="Left" Name="ToadButton" Content="Toad" Click="ToadButton_Click" Height="40" Width="50" Margin="4" ToolTip="Set to a toad shape"></Button>
+                <Button Cursor="Hand" HorizontalAlignment="Left" Name="BlinkerButton" Content="Blinker" Click="BlinkerButton_Click" Height="40" Width="50" Margin="4" ToolTip="Set to a blinker shape"></Button>
+                <Button Cursor="Hand" HorizontalAlignment="Left" Name="BeaconButton" Content="Beacon" Click="BeaconButton_Click" Height="40" Width="50" Margin="4" ToolTip="Set to a beacon shape"></Button>
+                <Button Cursor="Hand" HorizontalAlignment="Left" Name="PulsarButton" Content="Pulsar" Click="PulsarButton_Click" Height="40" Width="50" Margin="4" ToolTip="Set to a pulsar shape"></Button>
+                <Button Cursor="Hand" HorizontalAlignment="Left" Name="PentadecathlonButton" Content="Pentadecathlon" Click="PentadecathlonButton_Click" Height="40" Width="100" Margin="4" ToolTip="Set to a pentadecathlon shape"></Button>
             </StackPanel>
             <Separator Margin="10"></Separator>
             <DockPanel>
-                <Button Cursor="Hand" Name="startButton" Content="▶" FontSize="20" Click="startButton_Click" Height="40" Width="50" Margin="4" ToolTip="Start"></Button>
-                <Button Cursor="Hand" Name="pauseButton" Content="❚❚" FontSize="20" Click="pauseButton_Click" Height="40" Width="50" Margin="4" ToolTip="Pause"></Button>
-                <Button Cursor="Hand" Name="nextGenerationButton" Content="↪" FontSize="20" Click="nextGenerationButton_Click" Height="40" Width="50" Margin="4" ToolTip="Next generation"></Button>
-                <Button Cursor="Hand" Name="killButton" Content="☠" FontSize="20" Height="40" Width="50" Margin="4" Click="killButton_Click" ToolTip="Kill all cells"></Button>
+                <Button Cursor="Hand" Name="StartButton" Content="▶" FontSize="20" Click="StartButton_Click" Height="40" Width="50" Margin="4" ToolTip="Start"></Button>
+                <Button Cursor="Hand" Name="PauseButton" Content="❚❚" FontSize="20" Click="PauseButton_Click" Height="40" Width="50" Margin="4" ToolTip="Pause"></Button>
+                <Button Cursor="Hand" Name="NextGenerationButton" Content="↪" FontSize="20" Click="NextGenerationButton_Click" Height="40" Width="50" Margin="4" ToolTip="Next generation"></Button>
+                <Button Cursor="Hand" Name="killButton" Content="☠" FontSize="20" Height="40" Width="50" Margin="4" Click="KillButton_Click" ToolTip="Kill all cells"></Button>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBox Name="GridSizeTextBox" Text="10" Width="50" Height="40" FontSize="20" TextAlignment="Center" VerticalContentAlignment="Center" ToolTip="Size of the grid" HorizontalAlignment="Right"></TextBox>
-                    <Button Cursor="Hand" Name="refreshSizeButton" Content="↺" FontSize="20" Click="refreshSizeButton_Click" Height="40" Width="50" Margin="4" ToolTip="Refresh grid with the new size" HorizontalAlignment="Right"></Button>
+                    <Button Cursor="Hand" Name="RefreshSizeButton" Content="↺" FontSize="20" Click="RefreshSizeButton_Click" Height="40" Width="50" Margin="4" ToolTip="Refresh grid with the new size" HorizontalAlignment="Right"></Button>
                 </StackPanel>
             </DockPanel>
             <Separator Margin="10"></Separator>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" ToolTip="Update interval (ms)">
-                <Slider Cursor="Hand" Name="speedSlider" Maximum="1000" Minimum="10" Value="300" IsSnapToTickEnabled="True" HorizontalAlignment="Left" Width="846" ValueChanged="speedSlider_ValueChanged"></Slider>
+                <Slider Cursor="Hand" Name="speedSlider" Maximum="1000" Minimum="10" Value="300" IsSnapToTickEnabled="True" HorizontalAlignment="Left" Width="846" ValueChanged="SpeedSlider_ValueChanged"></Slider>
                 <TextBox IsReadOnly="True" Text="{Binding ElementName=speedSlider, Path=Value}" DockPanel.Dock="Right" HorizontalAlignment="Right" TextAlignment="Center"></TextBox>
             </StackPanel>
             <Separator Margin="10"></Separator>
         </StackPanel>
-        <ItemsControl Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="items" ItemTemplate="{DynamicResource DataTemplate_Level1}"/>
+        <ItemsControl Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Name="items" ItemTemplate="{DynamicResource DataTemplate_Level1}"/>
     </Grid>
 </Window>

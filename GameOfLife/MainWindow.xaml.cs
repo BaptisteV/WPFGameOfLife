@@ -30,11 +30,11 @@ namespace GameOfLife
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             game = new GameOfLifeGame(10, 10);
-            game.UpdateEvent += updateUI;
+            game.UpdateEvent += UpdateUI;
             game.SetTo(new ToadShape());
         }
 
-        private void updateUI(object sender, EventArgs e)
+        private void UpdateUI(object sender, EventArgs e)
         {
             // How to bind directly to CellPresentation.CellColor ?
             items.ItemsSource = game.displayList.Select(p => p.Select(i => i.CellColor));
@@ -44,7 +44,7 @@ namespace GameOfLife
             MessageBox.Show("The grid is too small for this shape", Title);
         }
 
-        private void toadButton_Click(object sender, RoutedEventArgs e)
+        private void ToadButton_Click(object sender, RoutedEventArgs e)
         {
             if(!game.SetTo(new ToadShape()))
             {
@@ -52,22 +52,22 @@ namespace GameOfLife
             }
         }
 
-        private void nextGenerationButton_Click(object sender, RoutedEventArgs e)
+        private void NextGenerationButton_Click(object sender, RoutedEventArgs e)
         {
             game.UpdateToNextGen();
         }
 
-        private void startButton_Click(object sender, RoutedEventArgs e)
+        private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             game.StartGame();
         }
 
-        private void pauseButton_Click(object sender, RoutedEventArgs e)
+        private void PauseButton_Click(object sender, RoutedEventArgs e)
         {
             game.StopGame();
         }
 
-        private void speedSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void SpeedSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             if (game != null)
             {
@@ -75,7 +75,7 @@ namespace GameOfLife
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Cell_Click(object sender, RoutedEventArgs e)
         {
             var button = (Button)sender;
             var buttonTotalWidth = button.Margin.Left + button.Width + button.Margin.Right;
@@ -91,12 +91,12 @@ namespace GameOfLife
             game.ChangeCellState(new Tuple<int, int>(x, y));
         }
 
-        private void killButton_Click(object sender, RoutedEventArgs e)
+        private void KillButton_Click(object sender, RoutedEventArgs e)
         {
             game.ClearGame();
         }
 
-        private void wikiButton_Click(object sender, RoutedEventArgs e)
+        private void WikiButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -113,18 +113,18 @@ namespace GameOfLife
             }
         }
 
-        private void refreshSizeButton_Click(object sender, RoutedEventArgs e)
+        private void RefreshSizeButton_Click(object sender, RoutedEventArgs e)
         {
             var newSize = 10;
             if (int.TryParse(GridSizeTextBox.Text, out newSize))
             {
                 game = new GameOfLifeGame(newSize, newSize);
-                game.UpdateEvent += updateUI;
-                updateUI(null, EventArgs.Empty);
+                game.UpdateEvent += UpdateUI;
+                UpdateUI(null, EventArgs.Empty);
             }
         }
 
-        private void blinkerButton_Click(object sender, RoutedEventArgs e)
+        private void BlinkerButton_Click(object sender, RoutedEventArgs e)
         {
             if (!game.SetTo(new BlinkerShape()))
             {
@@ -132,7 +132,7 @@ namespace GameOfLife
             }
         }
 
-        private void beaconButton_Click(object sender, RoutedEventArgs e)
+        private void BeaconButton_Click(object sender, RoutedEventArgs e)
         {
             if (!game.SetTo(new BeaconShape()))
             {
@@ -140,7 +140,7 @@ namespace GameOfLife
             }
         }
 
-        private void pulsarButton_Click(object sender, RoutedEventArgs e)
+        private void PulsarButton_Click(object sender, RoutedEventArgs e)
         {
             if (!game.SetTo(new PulsarShape()))
             {
@@ -148,7 +148,7 @@ namespace GameOfLife
             }
         }
 
-        private void pentadecathlonButton_Click(object sender, RoutedEventArgs e)
+        private void PentadecathlonButton_Click(object sender, RoutedEventArgs e)
         {
             if (!game.SetTo(new PentadecathlonShape()))
             {
